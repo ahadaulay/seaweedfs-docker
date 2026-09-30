@@ -1,0 +1,43 @@
+=============== Sep 25, 2026 (UTC) ===============
+02:46:29.592379 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+02:46:29.606533 db@open opening
+02:46:29.611660 version@stat F·[] S·0B[] Sc·[]
+02:46:29.616931 db@janitor F·2 G·0
+02:46:29.617579 db@open done T·9.701571ms
+=============== Sep 30, 2026 (UTC) ===============
+01:47:44.965268 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+01:47:44.976491 version@stat F·[] S·0B[] Sc·[]
+01:47:44.977729 db@open opening
+01:47:44.980253 journal@recovery F·1
+01:47:44.980992 journal@recovery recovering @1
+01:47:44.987083 version@stat F·[] S·0B[] Sc·[]
+01:47:45.009487 db@janitor F·2 G·0
+01:47:45.015808 db@open done T·36.951092ms
+=============== Sep 30, 2026 (UTC) ===============
+03:11:44.242079 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:11:44.253509 version@stat F·[] S·0B[] Sc·[]
+03:11:44.256874 db@open opening
+03:11:44.259884 journal@recovery F·1
+03:11:44.362975 journal@recovery recovering @2
+03:11:44.389947 version@stat F·[] S·0B[] Sc·[]
+03:11:44.482017 db@janitor F·2 G·0
+03:11:44.482803 db@open done T·225.246264ms
+=============== Sep 30, 2026 (UTC) ===============
+03:52:54.883882 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:52:54.917262 version@stat F·[] S·0B[] Sc·[]
+03:52:54.938499 db@open opening
+03:52:55.014395 journal@recovery F·1
+03:52:55.070278 journal@recovery recovering @4
+03:52:55.224058 memdb@flush created L0@6 N·3 S·298B "f\xad\a..ita,v3":"f\xad\a..ita,v1"
+03:52:55.320696 version@stat F·[1] S·298B[298B] Sc·[0.25]
+03:52:55.505750 db@janitor F·3 G·0
+03:52:55.506864 db@open done T·544.131999ms
+=============== Sep 30, 2026 (UTC) ===============
+03:57:19.802454 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:57:19.936187 version@stat F·[1] S·298B[298B] Sc·[0.25]
+03:57:20.004135 db@open opening
+03:57:20.145800 journal@recovery F·1
+03:57:20.366687 journal@recovery recovering @7
+03:57:20.429575 version@stat F·[1] S·298B[298B] Sc·[0.25]
+03:57:20.665751 db@janitor F·3 G·0
+03:57:20.666279 db@open done T·629.25556ms

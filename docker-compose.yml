@@ -1,0 +1,100 @@
+services:
+  master:
+    image: chrislusf/seaweedfs:latest
+    container_name: seaweed-master
+    restart: unless-stopped
+    command:
+      - master
+      - -ip=master
+      - -ip.bind=0.0.0.0
+      - -mdir=/data
+    volumes:
+      - ./data-master:/data
+    ports:
+      - "9333:9333"
+    networks:
+      - seaweed
+
+  volume:
+    image: chrislusf/seaweedfs:latest
+    container_name: seaweed-volume
+    restart: unless-stopped
+    command:
+      - volume
+      - -ip=volume
+      - -ip.bind=0.0.0.0
+      - -master=master:9333
+      - -dir=/data
+      - -max=0
+    volumes:
+      - ./data-volume:/data
+    depends_on:
+      - master
+    ports:
+      - "8081:8080"
+    networks:
+      - seaweed
+
+  filer:
+    image: chrislusf/seaweedfs:latest
+    container_name: seaweed-filer
+    restart: unless-stopped
+    command:
+      - filer
+      - -ip=filer
+      - -ip.bind=0.0.0.0
+      - -master=master:9333
+    volumes:
+      - ./data-filer:/data
+    depends_on:
+      - master
+      - volume
+    ports:
+      - "8888:8888"
+    networks:
+      - seaweed
+
+  s3:
+    image: chrislusf/seaweedfs:latest
+    container_name: seaweed-s3
+    restart: unless-stopped
+    command:
+      - s3
+      - -filer=filer:8888
+      - -ip.bind=0.0.0.0
+    environment:
+      AWS_ACCESS_KEY_ID: admin
+      AWS_SECRET_ACCESS_KEY: admin123
+    depends_on:
+      - filer
+    ports:
+      - "9000:8333"
+    networks:
+      - seaweed
+
+  admin:
+    image: chrislusf/seaweedfs:latest
+    container_name: seaweed-admin
+    restart: unless-stopped
+    command:
+      - admin
+      - -ip=0.0.0.0
+      - -port=23646
+      - -masters=master:9333
+      - -adminUser=admin
+      - -adminPassword=admin123
+      - -dataDir=/data
+    volumes:
+      - ./data-admin:/data
+    depends_on:
+      - master
+      - volume
+      - filer
+    ports:
+      - "23646:23646"
+    networks:
+      - seaweed
+
+networks:
+  seaweed:
+    driver: bridge
